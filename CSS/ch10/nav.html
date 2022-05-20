@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul { background-color: aliceblue; list-style: none; }
+        .nav1 ul li {
+            display: inline-block;
+            width: 150px;
+            padding: 10px;
+        }
+        .nav1 a:link, .nav1 a:visited { 
+            display: block; 
+            font-size: 14px;
+            color: #000;
+            background-color: antiquewhite;
+            padding: 10px;
+            text-decoration: none;
+            text-align: center;
+        } 
+        .nav1 a:hover, .nav1 a:focus { background-color: #222; color: #fff; }
+        .nav1 a:active { background-color: #f00; }
+    </style>
+</head>
+<body>
+    <nav class="nav1">
+        <ul>
+            <li><a href="http://www.naver.com">이용 안내</a></li>
+            <li><a href="http://www.daum.net">객실 소개</a></li>
+            <li><a href="http://www.google.com">예약 방법 및 요금</a></li>
+            <li><a href="http://www.nate.com">예약하기</a></li>
+        </ul>
+    </nav>
+    <script>
+        const aArr = document.querySelectorAll('a');
+        console.log(aArr);
+        aArr.forEach(function(item) {
+            item.setAttribute('target', '_blank');
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+#signup label {
+    display: inline-block;
+    font-size: 14px;
+    width: 100px;
+}
+
+ul { list-style: none; }
+ul > li:not(:last-child) { margin-bottom: 20px; }
+
+#signup input { vertical-align: middle; }
+
+#signup input[type='text'], #signup input[type='password'],
+#signup input[type='tel'], #signup input[type='email'] { 
+    border: 1px solid #ccc; 
+    border-radius: 3px;
+    font-size: 11px; 
+    padding: 5px;
+    width: 200px;
+}
+
+#signup input[readonly] { border: none;}
+#signup input[required] { border: 1px solid red;}
+input:focus { outline: none; }

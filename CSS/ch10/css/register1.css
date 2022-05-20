@@ -1,0 +1,12 @@
+#signup label { 
+    display: inline-block;
+    width: 110px;
+    font-size: 13px;
+}
+ul { list-style: none; }
+ul > li:not(:last-child) { margin-bottom: 20px; }
+/* 마지막 li 엘리먼트 제외하고 전부 */
+/* input { line-height: 20px; } */
+input { vertical-align: middle; }
+fieldset { margin: l20px;}
+button { border-radius: 50px; }

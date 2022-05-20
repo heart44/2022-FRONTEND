@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html { scroll-behavior: smooth;}
+        #menu { height: 100px;}
+        body { padding-top: 100px;}
+        div { height: 500px;}
+        a[title ^= 'eng'] { color: red; }
+        [value ^= 'aaa'] { color: aqua; }
+    </style>
+</head>
+<body>
+    <ul id="menu">
+        <li>외국어 서비스 : </li>
+        <li><a href="#cnt1" title="english">영어</a></li>
+        <li><a href="#cnt2" title="japanese">일본어</a></li>
+        <li><a href="#cnt3" title="chinese">중국어</a></li>
+        <li><input type="text" value="aaa"></li>
+    </ul>
+    <h1>어떤 것</h1>
+    <div id="cnt1">
+        cnt1
+        <a href="#menu">메뉴로 이동</a>
+    </div>
+    <div id="cnt2">
+        cnt2
+        <a href="#menu">메뉴로 이동</a>
+    </div>
+    <div id="cnt3">
+        cnt3
+        <a href="#menu">메뉴로 이동</a>
+    </div>
+</body>
+</html>

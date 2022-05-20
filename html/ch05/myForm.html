@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>My Form</h1>
+    <form action="/join">
+        <div>
+            <input type="text" name="iuser" value="hi" readonly>
+        </div>
+        <div>
+            <input type="text" name="uid" placeholder="user_id" autofocus required>
+        </div>
+        <div>
+            <input type="password" name="upw" placeholder="user_pw" required>
+        </div>
+        <div>
+           <label>프사 : <input type="file" name="pic" accept="image/*" multiple></label>
+        </div>
+        <div>
+            <label><textarea name="cmt">남기려는 말</textarea></label>
+        </div>
+        <div>
+            <label>
+                지역 : 
+                <select name="location">
+                    <option value="0">서울입니다</option>
+                    <option value="1" selected>대구입니다</option>
+                    <option value="2">대전입니다</option>
+                    <option value="3">부산입니다</option>
+                </select>
+            </label>
+        </div>
+        <div>
+            취미 :
+            <label><input type="checkbox" name="hobbit" value="0">농구</label>
+            <label><input type="checkbox" name="hobbit" value="1">축구</label>
+            <label><input type="checkbox" name="hobbit" value="2" checked>배구</label>
+            <label><input type="checkbox" name="hobbit" value="3">야구</label>
+        </div>
+        <div>
+            성별 : 
+            <label>여성<input type="radio" name="gender" value="0" checked></label>
+            <label>남성<input type="radio" name="gender" value="1"></label>
+        </div>
+        <div>
+            <input type="submit" value="join">
+            <input type="reset" value="reset">
+        </div>
+    </form>
+</body>
+</html>
