@@ -11,10 +11,10 @@
         var sum = 0;
         var num;
         while(true) {
+            if(num === 0) break;
+            
             num = Number(prompt('숫자를 입력해주세요.(종료 : 0)'));
             sum += num;
-
-            if(num === 0) break;
         }
         document.write('모두 더한 값 : ' + sum);
     </script>
