@@ -8,10 +8,16 @@
 </head>
 <body>
     <script>
-        var sum = 10;   //var는 두번 적어도 따로 에러는 안터짐
-        var sum = 20;   //let은 에러터짐(이미 선언됐기 때문에)
-
-        console.log(sum);
+        function calcSum(n) {
+            let sum = 0;
+            for(let i = 1; i <= n; i++) {
+                sum += i;
+            }
+            document.write(sum + '<br>');
+        }
+        
+        calcSum(10);
+        calcSum(5);
     </script>
 </body>
 </html>
