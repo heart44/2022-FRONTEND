@@ -11,12 +11,18 @@
     <script>
         //1~10까지 짝수만 더해서 결과값을 화면에 출력해주세요.
 
-        var sum = 0;
+        var sum = 0, sum2 = 0;
         for(var i = 1; i < 11; i++) {
             if(i % 2 == 0) {
                 sum += i;
                 document.write('<div>' + i + ' ------ ' + sum + '</div>');
             }
+        }
+        
+        //2씩 올려서 해결한 방법
+        for(var i = 2; i < 11; i += 2) {
+            sum2 += i;
+            document.write('<div>' + i + ' ------ ' + sum2 + '</div>');
         }
     </script>
 </body>
