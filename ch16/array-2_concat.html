@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //상수는 한 번 입력된 값이 변하지 않는 것
+        const arr = ['A', 'B', 'C'];    //배열에 접근할 수 있는 주소값이 저장됨
+        const arr2 = arr.concat(['D', 'E']);
+
+        //concat : 기존 배열 뒤에 요소를 추가해 새로운 배열 만듬
+
+        console.log(arr);
+        console.log(arr2);
+        console.log(['D', 'E'].concat(arr));    //이렇게도 가능
+
+        // arr.push('D');                  //그래서 주소값은 변하지 않기 때문에 추가/삭제 가능
+        // console.log(arr);
+    </script>
+</body>
+</html>
