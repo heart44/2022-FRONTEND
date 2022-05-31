@@ -1,0 +1,6 @@
+location.reload() : 새로고침
+
+location 주소 이동 
+    - location.href : history에 쌓임
+    - location.replace() : 주소 변경, history에 안 쌓임
+    - location.assign() : history에 쌓임
