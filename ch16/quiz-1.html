@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>현재 시각</title>
+</head>
+<body>
+    <p>현재 시각 <span id="current" class="display"></span></p>
+    <p>현재 시각 <span id="current2" class="display2"></span></p>
+
+    <script>
+        //setInterval : 계속 호출  setTimeout: 한번만 호출
+        setInterval(displayNow, 1000);
+        
+        function displayNow() {
+            const now = new Date();
+
+            let amPm = '오전';
+            let hour = now.getHours();
+            amPm = hour >= 12 ? amPm : '오후';
+            hour = hour % 12;
+            const min = fillZero(now.getMinutes());
+            const sec = fillZero(now.getSeconds());
+
+            const currentTime = amPm + ' ' + hour + ':' + min + ':' + sec;
+            const currentTime2 = now.toLocaleTimeString();
+            document.querySelector('#current').innerText = currentTime;
+            document.querySelector('#current2').innerText = currentTime2;
+            // document.querySelector('#current').append('<b>안녕</b>')
+        }
+
+        function fillZero(val) {
+            return ('0' + val).slice(-2);
+        }
+    </script>
+</body>
+</html>
