@@ -20,6 +20,9 @@
 
         // arr.push('D');                  //그래서 주소값은 변하지 않기 때문에 추가/삭제 가능
         // console.log(arr);
+        
+        const arr4 = [...arr, ...arr2];       //배열 안의 내용을 쫙 뿌리고 싶을 때 ... <- Spread 연산자 사용, 안쓰면 위의 배열이 들어옴(2차원 배열 됨)
+        console.log(arr4);
     </script>
 </body>
 </html>
