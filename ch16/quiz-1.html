@@ -17,9 +17,8 @@
         function displayNow() {
             const now = new Date();
 
-            let amPm = '오전';
             let hour = now.getHours();
-            amPm = hour >= 12 ? amPm : '오후';
+            let amPm = hour >= 12 ? '오전' : '오후';
             hour = hour % 12;
             const min = fillZero(now.getMinutes());
             const sec = fillZero(now.getSeconds());
