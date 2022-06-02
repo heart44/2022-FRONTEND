@@ -9,10 +9,15 @@
 <body>
     <p>현재 시각 <span id="current" class="display"></span></p>
     <p>현재 시각 <span id="current2" class="display2"></span></p>
+    <button onclick="stopInter();">멈추기</button>
 
     <script>
         //setInterval : 계속 호출  setTimeout: 한번만 호출
-        setInterval(displayNow, 1000);
+        const interObj = setInterval(displayNow, 1000);
+
+        function stopInter() {      //멈추기
+            clearInterval(interObj);
+        }
         
         function displayNow() {
             const now = new Date();
@@ -24,9 +29,9 @@
             const sec = fillZero(now.getSeconds());
 
             const currentTime = amPm + ' ' + hour + ':' + min + ':' + sec;
-            const currentTime2 = now.toLocaleTimeString();
+
             document.querySelector('#current').innerText = currentTime;
-            document.querySelector('#current2').innerText = currentTime2;
+            document.querySelector('#current2').innerText = now.toLocaleTimeString();
             // document.querySelector('#current').append('<b>안녕</b>')
         }
 
