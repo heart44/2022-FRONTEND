@@ -18,17 +18,20 @@
 
         function addP() {
             if(divInfo.innerHTML === '') {
-                const newP = document.createElement('p');
+                // const newP = document.createElement('p');
+                const newP = divInfo.appendChild(document.createElement('p'));
                 const txt = 'Dom은 document object model의 줄임말 입니다.';
                 const txtNode = document.createTextNode(txt);
 
-                newP.appendChild(txtNode);
-                divInfo.appendChild(newP);
+                // newP.appendChild(txtNode);
+                newP.append(txt);
+                // divInfo.appendChild(newP);
             } else {
                 divInfo.innerText = '';
             }
             
-            //append : 객체, 문자열 둘 다 가능  appendChild : 객체만 가능
+            //append : 객체, 문자열 둘 다 가능(여러개 한번에 append 가능), return 없음(void 함수)
+            //appendChild : 객체만 가능, return 있음(주소 값)
         }
     </script>
 </body>
