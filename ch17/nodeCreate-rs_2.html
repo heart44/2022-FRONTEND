@@ -39,17 +39,18 @@
             const divClose = newDiv.querySelector('.close');
             divClose.addEventListener('click', function() {
                 // newDiv.remove();
-                divClose.parentElement.remove();
+                // divClose.parentElement.remove();
+                this.parentElement.remove();        //arrow fn 일때는 위에 두개 사용하는 것이 좋음
             });
             
             sub.value = null;
         }
         
         function delsubject() {
-            const listP = document.querySelector('#itemList > div:last-child');
-            // itemList.lastChild.remove();
+            // const listP = document.querySelector('#itemList > div:last-child');
+            itemList.lastChild.remove();
             // itemList.removeChild(itemList.lastChild);
-            listP.remove();
+            // listP.remove();
 
             //강사님 방법
             // const divList = itemList.querySelectorAll('div');
