@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        addNumber(1, 2);        //실행되는 이유 : 함수는 호이스팅되기 때문
+
+        function addNumber(n1, n2) {    
+            var sum = n1 + n2;
+            document.write('결괏값 : ' + sum + '<br>');
+            return;             //void함수(값을 갖고오지 않는 함수)
+        }
+
+        addNumber();            //undefined + undefined = NaN
+        addNumber(4, 6);
+        addNumber(4, 5, 20);    //매개변수가 2개라서 앞의 두개만 더해짐
+    </script>
+</body>

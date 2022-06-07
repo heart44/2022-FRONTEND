@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #desc { display: none; }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <img src="https://picsum.photos/id/237/200/300"> <br>
+    <button class="over" onclick="flagDisplay('block');">상세 설명 보기</button>
+    <div id="desc" class="detail">
+        <h3>제목</h3>
+        <p>설명~!~!~!~</p>
+        <button id="close" onclick="flagDisplay('none');">상세 설명 닫기</button>
+    </div>
+
+    <script>
+        const desc = document.querySelector('#desc');
+
+        // function showDetail() {
+        //     const styleObj = desc.style;
+        //     styleObj.display = 'block';
+        
+        //     desc.style.display = 'block';
+        // }
+
+        // function hideDetail() {
+        //     desc.style.display = 'none';
+        // }
+        
+        function flagDisplay(display) {
+            desc.style.display = display;
+        }
+    </script>
+</body>
+</html>

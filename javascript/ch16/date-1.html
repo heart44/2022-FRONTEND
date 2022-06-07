@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //get : 가져오기 set: 설정하기
+
+        const now = new Date();
+        console.log(now);
+
+        const date1 = new Date('2020-05-30 01:00:20');
+
+        date1.setFullYear(2021);
+
+        console.log(date1);
+
+        console.log(date1.getFullYear());     //연도를 4자리 숫자로 표시 (getYear는 제거됨)
+        console.log(date1.getMonth() + 1);    //0~11 사이의 숫자로 월을 표시 (항상 + 1 해줘야 함)
+        console.log(date1.getDate());         //1~31 사이의 숫자로 일을 표시 
+        console.log(date1.getDay());          //0~6 사이의 숫자로 요일 표시 (일~토)
+        console.log(now.getTime());           //1970/1/1 자정 이후의 시간을 밀리초로 표시
+        console.log(now.getHours());          //시
+        console.log(now.getMinutes());        //분
+        console.log(now.getSeconds());        //초
+        console.log(now.getMilliseconds());   //밀리초
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function addNumber(n1, n2=10) {   //값이 하나만 왔을 때 default값 지정 가능 
+            const sum = n1 + n2;
+            return sum;
+        }
+
+        const rs = addNumber(10, 20);
+        document.write('두 수를 더한 값 : ' + rs + '<br>');
+
+        const rs2 = addNumber(11, 28);
+        document.write('두 수를 더한 값 : ' + rs2 + '<br>');
+
+        const rs3 = addNumber(10);      //NaN 뜨는 이유 : 두 개를 보내야하는 데 하나만 보냈고, n2는 undefined
+        document.write('두 수를 더한 값 : ' + rs3 + '<br>');
+    </script>
+</body>
+</html>

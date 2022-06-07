@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //즉시 실행 함수 : import 여러개 했을 때 변수명이 겹치는걸 방지하기 위해?
+        //                스코프가 짧다(괄호 안까지만 살아있음)
+        (function() {
+            document.write('실행<br>');
+        }());
+
+        (function(val) {
+            document.write('val : ' + val);
+        })(10);
+
+        // let fn1 = (function() {
+        //     // return 10;
+        //     document.write('ddd');
+        // })();                           //() 적으면 호출 됨
+        // console.log(fn1);
+    </script>
+</body>
+</html>

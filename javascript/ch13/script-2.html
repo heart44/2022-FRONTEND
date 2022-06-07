@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="heading" class="heading">자바스크립트2</h1>
+    <p id="text" class="heading" onclick="changeColor(this);">위 텍스트를 클릭해 보세요2</p>
+
+    <script src="js/change-color.js">       //외부 js 파일 import
+        function changeColor(target) {      //외불 파일 import 했을 때 옆 처럼 적으면 적용 안됨                
+            target.style.color = 'green';  
+        }
+    </script>      
+</body>
+</html>

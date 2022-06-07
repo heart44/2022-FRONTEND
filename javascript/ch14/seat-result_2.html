@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        table { border-collapse: collapse; }
+        table, td { border: 1px solid #ccc; }
+        td { padding: 5px; font-size: 0.9rem; }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <h1>자리 배치도</h1>
+    <script>
+        var memNum = Number(prompt('입장객 수는?'));
+        var seatNum = 1;
+        if(memNum > 0) {
+            var colNum = 6;
+            var rowNum = Math.ceil(memNum / colNum);
+        }
+
+        //for문 하나로 돌리는 방법
+        document.write('<table>');
+        for(var i = 0; i < (colNum * rowNum); i++) {
+            if(i === 0) {
+                document.write('<tr>');
+            } else if(i % colNum === 0) {
+                document.write('</tr>');
+                document.write('<tr>');
+            }
+            document.write(i < memNum ? `<td>좌석${i + 1}</td>` : '<td></td>');
+        }
+        document.write('</tr>');
+        document.write('</table>');
+    </script>
+</body>
+</html>

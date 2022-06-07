@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img id="cover" src="https://i.picsum.photos/id/876/500/300.jpg?hmac=KUeJwKAI7GN9zgzDtzz6BYWYFKnh5IkEfgbPOhclVtQ">
+
+    <script>
+        const imgCover = document.querySelector('#cover');
+
+        imgCover.addEventListener('mouseover', function() {
+            this.src = 'https://i.picsum.photos/id/380/500/300.jpg?hmac=VqLmu_4FsHVNoUgB9jhBWmMKzEWGBhZvoRxPDquMbNE';
+        });
+
+        imgCover.addEventListener('mouseout', function() {
+            this.src = 'https://i.picsum.photos/id/876/500/300.jpg?hmac=KUeJwKAI7GN9zgzDtzz6BYWYFKnh5IkEfgbPOhclVtQ';
+        })
+    </script>
+</body>
+</html>

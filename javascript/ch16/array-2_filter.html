@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //filter : 배열 요소 중에서 주어진 필터링 함수에 대해 true인 요소만 골라 새로운 배열 만듬
+        
+        const arr = [4, 20, 55, 32, 99, 47, 65, 1];
+        // const arr2 = arr.filter(item => {
+        //     if(item < 40) {
+        //         return true;
+        //     }
+        // });
+
+        //arrow 함수는 return 키워드 생략 가능
+        const arr2 = arr.filter(item => item < 40); 
+
+        console.log(arr);
+        console.log(arr2);
+
+        const arr3 = arr.filter(item => !(item % 2)); 
+
+        console.log(arr3);
+    </script>
+</body>
+</html>
