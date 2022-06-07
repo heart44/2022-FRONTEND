@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html, body { height: 100%; }
+        ul { list-style: none; }
+        li { display: inline-block; }
+        .pic { width: 200px; cursor: pointer; }
+        #lightbox { 
+            height: 100%; width: 100%;
+            background-color: #00000066;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            left: 0; top: 0;
+        }
+        #lightbox > img { border: 2px solid #fff; }
+    </style>
+</head>
+<body>
+    <div class="row">
+        <ul>
+            <li><img class="pic" src="https://i.picsum.photos/id/876/500/300.jpg?hmac=KUeJwKAI7GN9zgzDtzz6BYWYFKnh5IkEfgbPOhclVtQ"></li>
+            <li><img class="pic" src="https://i.picsum.photos/id/380/500/300.jpg?hmac=VqLmu_4FsHVNoUgB9jhBWmMKzEWGBhZvoRxPDquMbNE"></li>
+            <li><img class="pic" src="https://i.picsum.photos/id/1068/500/300.jpg?hmac=Rf61nZdBxmo4K4M4CYAbn9qJV4BSa960nI12fPnOkRc"></li>
+        </ul>
+    </div>
+    <div id="lightbox">
+        <img src="" id="lightboxImg">
+    </div>
+
+    <script>
+        const lightbox = document.querySelector('#lightbox');
+        const lightboxImg = document.querySelector('#lightboxImg');
+        const pic = document.querySelectorAll('.pic');
+
+        pic.forEach(item => {
+            item.addEventListener('click', showLightbox);
+        });
+
+        function showLightbox() {
+            const bigLocation = this.src;
+            
+            lightboxImg.setAttribute('src', bigLocation);
+            lightbox.style.display = 'flex';
+        }
+
+        lightbox.addEventListener('click', function() {
+            lightbox.style.display = 'none';
+        });
+    </script>
+</body>
+</html>

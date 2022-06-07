@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .c_pointer { cursor: pointer; }
+        .parent { display: flex; padding: 5px 0; }
+        .parent > .content { flex-grow: 1; }
+        .parent > .close { width: 15px; }
+    </style>
+</head>
+<body>
+    <h1>Web Programming</h1>
+    <p>공부할 주제를 기록해 보세요.</p>
+    <div>
+        <input type="text" id="subject">
+        <input type="button" value="추가" onclick="newReg();">
+        <input type="button" value="삭제" onclick="delsubject();">
+    </div>
+    <div id="itemList"></div>
+
+    <script>
+        const sub = document.querySelector('#subject');
+        const itemList = document.querySelector('#itemList');
+
+        function newReg() {
+            const txt = sub.value;
+            const newDiv = itemList.appendChild(document.createElement('div'));
+            
+            newDiv.classList.add('parent');
+            newDiv.innerHTML = `
+                <div class="content">${txt}</div>
+                <div class="close c_pointer">X</div>
+            `;
+
+            const divClose = newDiv.querySelector('.close');
+            divClose.addEventListener('click', function() {
+                // newDiv.remove();
+                // divClose.parentElement.remove();
+                this.parentElement.remove();        //arrow fn 일때는 위에 두개 사용하는 것이 좋음
+            });
+            
+            sub.value = null;
+        }
+        
+        function delsubject() {
+            // const listP = document.querySelector('#itemList > div:last-child');
+            itemList.lastChild.remove();
+            // itemList.removeChild(itemList.lastChild);
+            // listP.remove();
+
+            //강사님 방법
+            // const divList = itemList.querySelectorAll('div');
+            // divList[divList.length - 1].remove();
+        }
+    </script>
+</body>
+</html>
