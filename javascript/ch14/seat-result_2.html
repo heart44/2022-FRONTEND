@@ -21,20 +21,18 @@
             var rowNum = Math.ceil(memNum / colNum);
         }
 
+        //for문 하나로 돌리는 방법
         document.write('<table>');
-        for(var i = 0; i < rowNum; i++) {
-            document.write('<tr>');
-            for(var j = 1; j <= colNum; j++) {
-                // document.write('<td>');
-                // if(seatNum <= memNum) {
-                //     seatNum = (colNum * i) + j;     //가능한 계산식으로 해결안하는 것이 좋음
-                //     document.write('좌석' + seatNum);
-                // }
-                document.write(seatNum <= memNum ? `<td>좌석${seatNum++}</td>` : '<td></td>');
-                // document.write('</td>');
+        for(var i = 0; i < (colNum * rowNum); i++) {
+            if(i === 0) {
+                document.write('<tr>');
+            } else if(i % colNum === 0) {
+                document.write('</tr>');
+                document.write('<tr>');
             }
-            document.write('</tr>');
+            document.write(i < memNum ? `<td>좌석${i + 1}</td>` : '<td></td>');
         }
+        document.write('</tr>');
         document.write('</table>');
     </script>
 </body>

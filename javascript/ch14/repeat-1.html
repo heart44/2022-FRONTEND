@@ -8,16 +8,13 @@
 </head>
 <body>
     <script>
+        var num = prompt('숫자를 입력해주세요.');
         var sum = 0;
-        var num, val;
-        while(true) {
-            num = prompt('숫자를 입력해주세요.(종료 : 0)');
-            if(num === '0') break;
-            
-            val = Number(num);
-            sum += val;
+
+        for(var i = 1; i <= num; i++) {
+            sum += i;
         }
-        document.write('모두 더한 값 : ' + sum);
+        console.log('sum : ' + sum);
     </script>
 </body>
 </html>
