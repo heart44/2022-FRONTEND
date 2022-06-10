@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        1.  콜백지옥 안 하기 위해 promise 사용해야 함.
+        2.  promise 객체 만들 때 보내는 콜백함수, 
+            resolve 호출하면 then 실행
+            reject 호출하면 catch 실행 됨.
+        3.  2번 콜백에서 리턴 값을 보내면 resolve에 아규먼트로 사용한 promise 객체가 리턴된다.
+        */
+                                //1번 콜백
+        const p1 = new Promise(function(resolve) {
+            resolve('123456', 1, 2, 3);     //resolve, reject는 파라미터 1개만 받음       
+        });
+        // const val = cb('안녕');
+        // return new Promise(function(resolve) {
+        //     resolve(val);
+        // });
+                                //2번 콜백
+        const p2 = p1.then(function(result) {
+            console.log('p1 : ' + result);
+            return 'hello';
+        });
+        p2.then(function(result) {
+            console.log('p2 : ' + result);
+        });
+    </script>
+</body>
+</html>
