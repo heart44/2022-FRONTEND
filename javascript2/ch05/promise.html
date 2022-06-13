@@ -8,11 +8,18 @@
 </head>
 <body>
     <script>
-        function pMethod(resolve, reject) {
-            resolve('resolve');     //에러가 안터지면 호출
-            reject('catch');        //에러 터지면 호출
+        const success = true;
+        function pMethod(resolve, reject) { //파라미터에도 콜백함수 들어옴(promise가 보내주는 함수)
+            // resolve('resolve');     //에러가 안터지면 호출
+            // reject('catch');        //에러 터지면 호출
+
+            if(success) {
+                resolve('1111');
+            } else {
+                reject('2222');
+            }
         }
-        const p1 = new Promise(pMethod);
+        const p1 = new Promise(pMethod);    //콜백함수(pMethod) 보내야함
 
         function resolveMethod(result) {
             console.log('resolve : ' + result);
@@ -22,6 +29,9 @@
         }
         p1.then(resolveMethod);     //resolve 메소드 
         p1.catch(catchMethod);      //reject 메소드
+
+        //다른 방법
+        // p1.then(resolveMethod).catch(catchMethod);
     </script>
 </body>
 </html>

@@ -19,6 +19,8 @@
         const p1 = new Promise(function(resolve) {
             resolve('123456', 1, 2, 3);     //resolve, reject는 파라미터 1개만 받음       
         });
+
+        //then 메소드 안이 이런식으로 구성돼 있을 것인 걸 예로 들음
         // const val = cb('안녕');
         // return new Promise(function(resolve) {
         //     resolve(val);
@@ -31,6 +33,14 @@
         p2.then(function(result) {
             console.log('p2 : ' + result);
         });
+
+        //line 29~35를 아래와 같이 작성 가능
+        // p1.then(function(result) {
+        //     console.log('p1 : ' + result);
+        //     return 'hello';
+        // }).then(function(result) {
+        //     console.log('p2 : ' + result);
+        // });
     </script>
 </body>
 </html>

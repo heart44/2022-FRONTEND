@@ -9,16 +9,18 @@
 <body>
     <script>
         function sum(n1, n2) {
-            return n1 + n2;
+            let rs = 0;
+            rs = n1 + n2;
+            return rs;
         }
         console.log(sum(10, 20));
 
         function sum2(n1, n2) {
-            let sum = 0;
+            let rs = 0;
             setTimeout(function() {
-                sum = n1 + n2;
+                rs = n1 + n2;
             }, 1000);
-            return sum;
+            return rs;
         }
         console.log(sum2(10, 20));
     </script>
