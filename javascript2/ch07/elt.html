@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container"></div>
+
+    <script>
+        function elt(name, attr) {
+            const node =document.createElement(name);
+            if(attr) {
+                for(var item in attr) {
+                    if(attr.hasOwnProperty(item)) {
+                        node.setAttribute(item, attr[item]);
+                    }
+                }
+            }
+            return node;
+        }
+
+        const optionObj = {
+            'src': 'https://mblogthumb-phinf.pstatic.net/MjAxNzA3MTBfMjky/MDAxNDk5NjczNDIzNTgw.KG9GZda2dpxXk_BMeWORp8euBbGHP8mnmVc6ViAJA7kg.HacolS0Bf21dHy7endU2lIwlpvk7hX2c7YOTvbe0IoMg.JPEG.grg20/zzzbdd482efb66464e2ebf3de8b17a03983.jpg?type=w800', 
+            'alt': '하마'
+        }
+        const eleImg = elt('img', optionObj);
+        console.log(eleImg);
+
+        const divContainer = document.querySelector('#container');
+        divContainer.appendChild(eleImg);
+    </script>
+</body>
+</html>

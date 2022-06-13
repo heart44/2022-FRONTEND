@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* tr, td { border: 1px solid #333; padding: 10px; } */
+    </style>
+</head>
+<body>
+    <script>
+        function elt(name, attr) {
+            const node =document.createElement(name);
+            if(attr) {
+                for(var item in attr) {
+                    if(attr.hasOwnProperty(item)) {
+                        node.setAttribute(item, attr[item]);
+                    }
+                }
+            }
+            return node;
+        }
+
+        function createIconEditor(parent, nx, ny) {
+            //color input
+            const inputColor = elt('input', {type: 'color'});
+            parent.appendChild(inputColor);
+
+            //all clear button
+            const btnAllClear = elt('input', {type: 'button', value: 'All Clear'});
+            parent.appendChild(btnAllClear);
+
+            //table
+            const table = elt('table');
+            table.style.borderCollapse = 'collapse';
+            table.style.marginTop = '10px';
+            parent.appendChild(table);
+
+            for(let i=0; i<ny; i++) {
+                const tr = elt('tr');
+                table.appendChild(tr);
+                for(let j=0; j<nx; j++) {
+                    const td = elt('td');
+                    tr.appendChild(td);
+                    td.style.width = td.style.height = '15px';
+                    td.style.border = '1px solid #333';
+                    td.style.padding = '10px';
+
+                    td.addEventListener('click', function(e) {
+                        if(td.style.backgroundColor === '') {
+                            e.target.style.backgroundColor = inputColor.value;
+                        } else {
+                            e.target.style.backgroundColor = '';
+                        }
+                    });
+                }
+            }
+            
+            btnAllClear.addEventListener('click', clearColor);
+        }
+
+        function clearColor() {
+            const td = document.querySelectorAll('td');
+            td.forEach(element => {
+                element.style.backgroundColor = '';
+            });
+        }
+
+        createIconEditor(document.body, 10, 6);
+    </script>
+</body>
+</html>
