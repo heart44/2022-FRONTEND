@@ -24,6 +24,8 @@
         }
 
         function createIconEditor(parent, nx, ny) {
+            const cells = [];   //배열 만들어서 td 만들어질 때마다 추가
+
             //color input
             const inputColor = elt('input', {type: 'color'});
             parent.appendChild(inputColor);
@@ -31,7 +33,12 @@
             //all clear button
             const btnAllClear = elt('input', {type: 'button', value: 'All Clear'});
             parent.appendChild(btnAllClear);
-            btnAllClear.addEventListener('click', clearColor);
+            //책 방법
+            btnAllClear.addEventListener('click', function() {
+                cells.forEach(element => {
+                    element.style.backgroundColor = '';
+                });
+            }); 
 
             //table
             const table = elt('table');
@@ -45,6 +52,7 @@
                 for(let j=0; j<nx; j++) {
                     const td = elt('td');
                     tr.appendChild(td);
+                    cells.push(td);
                     td.style.width = td.style.height = '15px';
                     td.style.border = '1px solid #333';
                     td.style.padding = '10px';
@@ -54,43 +62,16 @@
             }
         }
 
-        //rgb 에서 hex 로 변환 함수
-        function convertRGBtoHex(rgb) {
-            if(rgb === '') {
-                return '';
-            }
-            const colors = rgb.substring(rgb.indexOf('(') + 1, rgb.lastIndexOf(')')).split(/,\s*/);
-            return '#' + colorToHex(colors[0]) + colorToHex(colors[1]) + colorToHex(colors[2]);
-        }
-
-        function colorToHex(color) {
-            var hexadecimal = parseInt(color, 10).toString(16);
-            return hexadecimal.length == 1 ? "0" + hexadecimal : hexadecimal; 
-        }
-        //변환 함수 끝
-
         //클릭 시 색 변경 함수
         function clickColor(e) {
             const changeColor = document.querySelector('input[type=color]');
 
-            if (e.target.style.backgroundColor === '') {
+            if (e.target.style.backgroundColor === '' || e.target.color16 !== changeColor.value) {
                 e.target.style.backgroundColor = changeColor.value;
+                e.target.color16 = changeColor.value;
             } else {
-                const rgbToHex = convertRGBtoHex(e.target.style.backgroundColor);
-                if (changeColor.value === rgbToHex) {
-                    e.target.style.backgroundColor = '';
-                } else {
-                    e.target.style.backgroundColor = changeColor.value;
-                }
+                e.target.style.backgroundColor = '';
             }
-        }
-
-        //칠해진 색상 모두 삭제 함수
-        function clearColor() {
-            const allTd = document.querySelectorAll('td');
-            allTd.forEach(element => {
-                element.style.backgroundColor = '';
-            });
         }
 
         createIconEditor(document.body, 10, 6);
