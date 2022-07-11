@@ -1,9 +1,10 @@
 <template>
     <div id="app">
         <TodoHeader></TodoHeader>
-        <TodoInput @childAddTodo="addTodo"></TodoInput>
+        <TodoInput @childAddTodo="addTodo" @open="open"></TodoInput>
         <TodoList :propsItems="todoItems" @childRemoveTodo="removeTodo"></TodoList>   <!-- v-bind는 생략 가능 -->
         <TodoFooter @childClearTodo="clearTodo"></TodoFooter>
+        <AlertModal :show="modalShow" header="알림창" body="내용을 입력해 주세요" @close="close"></AlertModal>
     </div>
 </template>
 
@@ -12,35 +13,54 @@
     import TodoInput from './components/todo/TodoInput.vue';
     import TodoList from './components/todo/TodoList.vue';
     import TodoFooter from './components/todo/TodoFooter.vue';
+    import AlertModal from './components/common/AlertModal.vue';
 
     export default {
     name: 'App',
     data() {
         return {
             todoItems: [],
+            cnt: 0,
+            modalShow: false,
         }
     },
     methods: {
+        open() {
+            this.modalShow = true;
+        },
+        close() {
+            this.modalShow = false;
+        },
         addTodo(todoItem) {
             // localStorage.setItem(todoItem, todoItem);
-            this.todoItems.push(todoItem);
+            this.todoItems.push({
+                key: this.cnt++,
+                value: todoItem
+            });
             // this.changeValue();
         },
-        removeTodo(idx) {
+        removeTodo(key) {
             // localStorage.removeItem(todoItem);
-            this.todoItems.splice(idx, 1);
+            // this.todoItems.splice(idx, 1);
+            this.todoItems.forEach((item, idx) => {
+                if(item.key === key) {
+                    this.todoItems.splice(idx, 1);
+                }
+            })
             // this.changeValue();
         },
         clearTodo() {
             // this.todoItems = [];
             // this.todoItems.length = 0;   //빈 배열로 만드는 방법
             this.todoItems.splice(0);
+            this.cnt = 0;
             // this.changeValue();
             // localStorage.clear();
         },
         changeValue() {
             const json = JSON.stringify(this.todoItems);
             localStorage.setItem('todoItems', json);
+            localStorage.setItem('cnt', this.cnt);
         }
     },
     created() {
@@ -50,6 +70,8 @@
             todoItems.forEach(item => {
                 this.todoItems.push(item);
             }); 
+            const cnt = localStorage.getItem('cnt');
+            this.cnt = cnt;
         }
         // if(localStorage.length) {
         //     for(let i=0; i<localStorage.length; i++) {
@@ -71,7 +93,8 @@
         TodoHeader, 
         TodoInput, 
         TodoList, 
-        TodoFooter
+        TodoFooter,
+        AlertModal,
     }
 }
 </script>

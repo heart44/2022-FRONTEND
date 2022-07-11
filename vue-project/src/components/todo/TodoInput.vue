@@ -16,11 +16,19 @@ export default {
     },
     methods: {
         addTodo() {
-            if(this.newTodoItem.trim() !== '') { 
-                const value = this.newTodoItem.trim();  //trim : 양쪽에 있는 빈칸 제거
-                // localStorage.setItem(value, value);     //setItem(key값, value값)
+            if(this.newTodoItem.trim() === '') {
+                this.$emit('open');
+            } else {
+                const value = this.newTodoItem.trim(); 
                 this.$emit('childAddTodo', value);
             }
+            // if(this.newTodoItem.trim() !== '') { 
+            //     const value = this.newTodoItem.trim();  //trim : 양쪽에 있는 빈칸 제거
+            //     // localStorage.setItem(value, value);     //setItem(key값, value값)
+            //     this.$emit('childAddTodo', value);
+            // } else {
+            //     this.$emit('childModalOpen');
+            // }
             this.newTodoItem = '';
         }
     }
