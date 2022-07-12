@@ -1,10 +1,13 @@
 <template>
     <section>
         <transition-group name="list" tag="ul">
-            <li :key="todoItem.key" v-for="todoItem in propsItems" class="shadow">
+            <li :key="todoItem.itodo" v-for="todoItem in propsItems" class="shadow">
                 <i class="checkBtn fas fa-check" aria-hidden="true"></i>
-                {{ todoItem.value }}
-                <span class="removeBtn" type="button" @click="removeTodo(todoItem.key)">
+                <div class="grow-1 d-flex flex-col justify-content-evenly">
+					<div class="ctnt">{{ todoItem.todo }}</div>
+					<div class="small-text">{{ todoItem.created_at }}</div>
+				</div>
+                <span class="removeBtn" type="button" @click="removeTodo(todoItem.itodo)">
                     <i class="far fa-trash-alt" aria-hidden="true"></i>
                 </span>
             </li>
@@ -30,12 +33,12 @@ export default {
     ul { list-style: none; padding-left: 0; margin-top: 0; text-align: left; }
     li {
         display: flex;
-        min-height: 50px; height: 50px; width: 80%;
-        line-height: 50px;
-        margin: 0.9rem auto; padding: 0 0.9rem; 
+        width: 80%;
+        margin: 0.5rem auto; padding: 0.5rem 0.9rem; 
         background-color: white;
         border-radius: 5px;
     }
-    .checkBtn { line-height: 50px; color: #62acde; margin-right: 5px; }
-    .removeBtn { margin-left: auto; color: #de4343; cursor: pointer; }
+    .checkBtn { line-height: 50px; color: #62acde; margin-right: 20px; }
+    .removeBtn { line-height: 50px; margin-left: auto; color: #de4343; cursor: pointer; }
+	.small-text { font-size: .8rem; color: #828181; }
 </style>
